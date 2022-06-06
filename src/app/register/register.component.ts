@@ -24,12 +24,6 @@ export class RegisterComponent implements OnInit {
 
   register() {
 
-    if (this.user.fullName == '') {
-      this.toast.open("Please enter your name", "close", {duration: 5000, verticalPosition: 'top',
-      horizontalPosition: 'right'});
-      return;
-    }
-
     if (this.user.email == '') {
       this.toast.open("Please enter email", "close", {duration: 5000, verticalPosition: 'top',
       horizontalPosition: 'right'});
@@ -42,7 +36,7 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    this.auth.register(this.user.email, this.user.password, this.user.fullName);
+    this.auth.register(this.user.email, this.user.password);
     
     this.user.email = '';
     this.user.password = '';

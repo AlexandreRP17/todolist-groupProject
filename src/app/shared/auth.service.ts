@@ -4,17 +4,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { GoogleAuthProvider, user } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import { getDatabase, ref, set } from "firebase/database";
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
-
-interface User {
-  uid: string;
-  fullName: string;
-  email: string;
-  
-}
-
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +31,7 @@ export class AuthService {
   }
 
   //register method
-  register(email : string, password : string, fullName : string) {
+  register(email : string, password : string) {
     this.fireauth.createUserWithEmailAndPassword(email, password).then( res => {
       this.toast.open("Registration Successfully", "close", {duration: 5000, verticalPosition: 'top',
       horizontalPosition: 'right'});
