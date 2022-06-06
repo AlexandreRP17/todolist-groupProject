@@ -1,16 +1,55 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { TaskComponent } from './task/task.component';
+import { MatCardModule } from '@angular/material/card';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { TaskDialogComponent } from './task-dialog/task-dialog.component';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { NgToastModule } from 'ng-angular-popup';
+import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './login/login.component';
+import { TodoComponent } from './todo/todo.component';
+import { RegisterComponent } from './register/register.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { MatSelectModule } from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent, TaskComponent, TaskDialogComponent, LoginComponent, TodoComponent, RegisterComponent, ForgotPasswordComponent],
   imports: [
-    BrowserModule
+    BrowserModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule,
+    DragDropModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatInputModule,
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    BrowserAnimationsModule,
+    NgToastModule,
+    AppRoutingModule, MatSelectModule,
+    MatDatepickerModule,
+    MatSnackBarModule,
+    MatNativeDateModule
+    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
